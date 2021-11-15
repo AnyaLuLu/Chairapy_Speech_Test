@@ -16,7 +16,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
 
-    TextView mTextTv;
+    //TextView mTextTv;
     ImageButton mVoiceBtn;
 
     @Override
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextTv = findViewById(R.id.textTV);
+        //mTextTv = findViewById(R.id.textTV);
         mVoiceBtn = findViewById(R.id.voiceBtn);
 
 
@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
         }
         catch(Exception e){
-            Toast.makeText(this, "Not Recognized"+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Your Device Doesn't Support Speech Input", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Not Recognized "+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -64,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 if(resultCode == RESULT_OK && null != data){
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
-                    mTextTv.setText(result.get(0));
+                    //*** SEND TO BRIAN SOMEHOW ***//
+
+                    //mTextTv.setText(result.get(0));
                 }
                 break;
             }
